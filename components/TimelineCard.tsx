@@ -106,7 +106,7 @@ export default function TimelineCard({ record }: { record: KatsuoRecord }) {
         >
           {dateStr}
         </time>
-        <span style={{ fontSize: 12, color: "var(--outline-variant)", color: "rgba(72,95,132,0.35)" }}>›</span>
+                <span style={{ fontSize: 12, color: "rgba(72,95,132,0.35)" }}>›</span>
       </div>
     </Link>
   );
