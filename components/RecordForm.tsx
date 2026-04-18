@@ -218,7 +218,7 @@ export default function RecordForm({ action, initial }: RecordFormProps) {
           </Field>
 
           {/* Location */}
-          <Field label="Location" required error={errors.location} style={{ marginBottom: 0 }}>
+                    <Field label="Location" required error={errors.location}>
             <input id="f-location" name="location" type="text"
               defaultValue={initial?.location ?? ""}
               placeholder="例: 明神丸 高知本店"
