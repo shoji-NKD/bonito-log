@@ -1,0 +1,310 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   BONITO LOG — The Nautical Archive
+   Design System: Blood, Salt, and Deep Water
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary:            #b7102a;
+  --primary-dark:       #8c0c20;
+  --primary-container:  #db313f;
+  --secondary:          #485f84;
+  --secondary-container:#d0dff7;
+  --on-surface:         #001e2e;
+  --on-surface-variant: #3a5068;
+  --surface:            #f6faff;
+  --surface-lowest:     #ffffff;
+  --surface-low:        #eef4fb;
+  --surface-high:       #ddeeff;
+  --surface-highest:    #c7e7ff;
+  --outline-variant:    rgba(72,95,132,0.15);
+  --shadow-ambient:     0 4px 24px rgba(72,95,132,0.07);
+  --shadow-ambient-lg:  0 8px 40px rgba(72,95,132,0.10);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Manrope', -apple-system, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--on-surface);
+  background-color: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ── Typography ── */
+.font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+.display-lg {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(56px, 15vw, 88px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: var(--on-surface);
+}
+
+.display-md {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(36px, 9vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.headline-lg {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.label-logbook {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+/* ── The No-Line Rule: tonal boundaries only ── */
+
+/* ── Cards (surface-lowest on surface-low) ── */
+.card-nautical {
+  background: var(--surface-lowest);
+  border-radius: 18px;
+  box-shadow: var(--shadow-ambient);
+  padding: 20px;
+}
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 4px;
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 100px;
+  z-index: 100;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+.skip-link:focus {
+  left: 8px;
+}
+
+/* ── Glassmorphic nav (Glass & Gradient Rule) ── */
+.nav-glass {
+  background: rgba(246, 250, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(72, 95, 132, 0.10);
+}
+
+/* ── Primary CTA: pill shape ── */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 140ms, transform 100ms;
+  white-space: nowrap;
+}
+.btn-pill:hover  { background: var(--primary-dark); }
+.btn-pill:active { transform: scale(0.97); }
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 28px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 140ms, transform 100ms;
+}
+.btn-primary:hover   { background: var(--primary-dark); }
+.btn-primary:active  { transform: scale(0.97); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* Glassmorphic secondary (Secondary Button Rule) */
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(72, 95, 132, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--secondary);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms;
+}
+.btn-glass:hover { background: rgba(72, 95, 132, 0.18); }
+
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(183, 16, 42, 0.08);
+  color: var(--primary);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms;
+}
+.btn-danger:hover { background: rgba(183, 16, 42, 0.16); }
+
+/* ── Minimalist inputs (no border/line, surface tint bg) ── */
+.inp-nautical {
+  width: 100%;
+  background: var(--surface-highest);
+  border: none;
+  border-radius: 4px;
+  padding: 11px 14px;
+  font-size: 15px;
+  font-family: 'Manrope', sans-serif;
+  color: var(--on-surface);
+  height: 46px;
+  outline: none;
+  transition: background 140ms, box-shadow 140ms;
+}
+.inp-nautical:focus {
+  background: var(--surface-high);
+  box-shadow: inset 0 0 0 1.5px rgba(72, 95, 132, 0.35);
+}
+.inp-nautical::placeholder {
+  color: rgba(72, 95, 132, 0.40);
+}
+textarea.inp-nautical {
+  height: auto;
+  resize: vertical;
+}
+
+/* ── Section label ── */
+.sec-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 14px;
+}
+
+/* ── Type badges ── */
+.type-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 100px;
+}
+.type-hatsu   { background: #fff0e0; color: #a04000; }
+.type-modori  { background: var(--surface-highest); color: var(--secondary); }
+.type-other   { background: var(--surface-high); color: var(--on-surface-variant); }
+
+/* ── Ghost border (accessibility fallback) ── */
+.ghost-border {
+  box-shadow: inset 0 0 0 1px rgba(72, 95, 132, 0.15);
+}
+
+/* ── Staggered fade-in (Motion: water-like) ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up   { animation: fadeUp 320ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.fade-up-2 { animation: fadeUp 320ms 80ms  cubic-bezier(0.22, 1, 0.36, 1) both; }
+.fade-up-3 { animation: fadeUp 320ms 160ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.fade-up-4 { animation: fadeUp 320ms 240ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.fade-up-5 { animation: fadeUp 320ms 320ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .fade-up-2, .fade-up-3, .fade-up-4, .fade-up-5 {
+    animation: none;
+  }
+}
+
+/* ── Skipjack pulsing loader ── */
+@keyframes sjPulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.08); }
+}
+.sj-pulse { animation: sjPulse 1.4s ease-in-out infinite; }
+
+/* ── Hero gradient (Signature Texture) ── */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+}
+
+/* ── Record card shimmer on hover ── */
+.record-card {
+  background: var(--surface-lowest);
+  border-radius: 18px;
+  box-shadow: var(--shadow-ambient);
+  transition: background 140ms;
+}
+.record-card:hover { background: var(--surface-highest); }
+.record-card:nth-child(even) { background: var(--surface-low); }
+.record-card:nth-child(even):hover { background: var(--surface-highest); }
