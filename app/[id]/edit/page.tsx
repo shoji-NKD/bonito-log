@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return { title: r ? `${r.dish} を編集` : "編集" };
 }
 
-export default async function EditPage({ params }: { params: Promise<{ id: string }> }) {}
+export default async function EditPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params; const record = await getRecord(id);
   if (!record) notFound();
 
