@@ -5,13 +5,13 @@ import { getRecord } from "@/lib/db";
 import { editRecord } from "@/lib/actions";
 import RecordForm from "@/components/RecordForm";
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const r = await getRecord(params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params; const r = await getRecord(id);
   return { title: r ? `${r.dish} を編集` : "編集" };
 }
 
 export default async function EditPage({ params }: { params: { id: string } }) {
-  const record = await getRecord(params.id);
+  const { id } = await params; const record = await getRecord(id);
   if (!record) notFound();
 
   const action = editRecord.bind(null, record.id);

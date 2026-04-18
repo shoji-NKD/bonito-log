@@ -5,8 +5,8 @@ import { getRecord } from "@/lib/db";
 import SkipjackRating from "@/components/SkipjackRating";
 import DeleteButton from "@/components/DeleteButton";
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const r = await getRecord(params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params; const r = await getRecord(id);
   return { title: r ? r.dish : "記録" };
 }
 
@@ -16,7 +16,7 @@ const TYPE_CONFIG: Record<string, { cls: string; label: string }> = {
   "その他":    { cls: "type-other",  label: "その他" },
 };
 
-export default async function DetailPage({ params }: { params: { id: string } }) {
+export default async function DetailPage({ params }: { params: Promise<{ id: string }> }) {
   const record = await getRecord(params.id);
   if (!record) notFound();
 
